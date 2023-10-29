@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+import HomeComponentOrPage from './Home'; // 路径根据你的文件结构调整
+import AboutComponentOrPage from './About'; // 根据你的文件结构调整路径
+import ContactComponentOrPage from './Contact'; // 根据你的文件结构调整路径
+import Header from './Header';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <div>
+                <Header />
+                <Routes>
+                    <Route path="/" element={<HomeComponentOrPage />} />
+                    <Route path="/about" element={<AboutComponentOrPage />} />
+                    <Route path="/contact" element={<ContactComponentOrPage />} />
+                </Routes>
+
+            </div>
+        </Router>
+    );
 }
 
 export default App;
